@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Safe 20Hz Simulation</title>
+  <title>Dangerous 60Hz Simulation</title>
   <style>
     body {
       margin: 0;
@@ -25,13 +25,13 @@
   </style>
 </head>
 <body>
-  <div id="warning">⚠️ nOT SAFE 150Hz visual simulation (smooth transitions)</div>
-  <h1>Safe 20Hz Visual Simulation</h1>
+  <div id="warning">⚠️ NOT SAFE 60Hz visual simulation </div>
+  <h1>Dangerous 60Hz Visual Simulation (Warning: Flasing Lights) </h1>
   <script>
     const body = document.body;
     function animate(time) {
       // Smooth sine-wave color cycling, frequency ~20Hz
-      const freq = 150; 
+      const freq = 60; 
       const r = Math.floor(127 + 127 * Math.sin(freq * time * 0.003));
       const g = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 2));
       const b = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 4));
