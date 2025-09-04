@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Safe 20Hz Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      color: white;
+      transition: background-color 0.05s linear; /* Smooth transition to avoid hard flashes */
+    }
+    #warning {
+      position: absolute;
+      top: 10px;
+      background: rgba(0,0,0,0.7);
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="warning">⚠️ Safe 20Hz visual simulation (smooth transitions)</div>
+  <h1>Safe 20Hz Visual Simulation</h1>
+  <script>
+    const body = document.body;
+    function animate(time) {
+      // Smooth sine-wave color cycling, frequency ~20Hz
+      const freq = 20; 
+      const r = Math.floor(127 + 127 * Math.sin(freq * time * 0.003));
+      const g = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 2));
+      const b = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 4));
+      body.style.backgroundColor = `rgb(${r},${g},${b})`;
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
