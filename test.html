@@ -25,13 +25,13 @@
   </style>
 </head>
 <body>
-  <div id="warning">⚠️ Safe 20Hz visual simulation (smooth transitions)</div>
+  <div id="warning">⚠️ nOT SAFE 150Hz visual simulation (smooth transitions)</div>
   <h1>Safe 20Hz Visual Simulation</h1>
   <script>
     const body = document.body;
     function animate(time) {
       // Smooth sine-wave color cycling, frequency ~20Hz
-      const freq = 20; 
+      const freq = 150; 
       const r = Math.floor(127 + 127 * Math.sin(freq * time * 0.003));
       const g = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 2));
       const b = Math.floor(127 + 127 * Math.sin(freq * time * 0.003 + 4));
