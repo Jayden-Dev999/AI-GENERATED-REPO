@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Color Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+
+    #warning {
+      position: absolute;
+      top: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div id="warning">
+    ⚠️ Warning: Contains color-changing visuals. Safe flicker rates used.
+  </div>
+
+  <div style="text-align: center;">
+    <h1>Safe Color Animation</h1>
+    <p>Click below to start / stop the animation.</p>
+    <button id="toggle">Start</button>
+  </div>
+
+  <script>
+    const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#33FFF3"];
+    let index = 0;
+    let interval = null;
+
+    const body = document.body;
+    const toggleBtn = document.getElementById("toggle");
+
+    function changeColor() {
+      index = (index + 1) % colors.length;
+      body.style.backgroundColor = colors[index];
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+        toggleBtn.textContent = "Start";
+      } else {
+        // Change colors every 700ms (safe rate)
+        interval = setInterval(changeColor, 700);
+        toggleBtn.textContent = "Stop";
+      }
+    });
+  </script>
+</body>
+</html>
